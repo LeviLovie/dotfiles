@@ -7,3 +7,6 @@ This has some plugins to make neovim more convinient. For exemple plugin to move
 
 ## Tmux
 This is also configurated to use instead of usual IDE. But here need to install some plugins.
+
+## .zshrc
+My configuration of the .zashrc file. Also i use ```oh my zsh```
