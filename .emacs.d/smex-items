@@ -1,0 +1,23 @@
+
+;; ----- smex-history -----
+(
+ eshell
+ term
+ menu-set-font
+ shell
+ mouse-wheel-global-text-scale
+ nix-shell
+ dired-do-async-shell-command
+)
+
+;; ----- smex-data -----
+(
+ (package-install . 4)
+ (dired-do-async-shell-command . 1)
+ (shell . 2)
+ (nix-shell . 1)
+ (mouse-wheel-global-text-scale . 1)
+ (eshell . 9)
+ (menu-set-font . 1)
+ (term . 2)
+)
