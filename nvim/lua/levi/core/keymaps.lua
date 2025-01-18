@@ -45,9 +45,8 @@ keymap.set("n", "<leader>lr", ":lua vim.lsp.buf.references()<CR>", { desc = "Sho
 
 -- Map ESC to exit out of terminal mode
 keymap.set("t", "<Esc>", "<C-\\><C-n>", { noremap = true, silent = true })
-
-keymap.set('n', '<leader>qe', '<cmd>FloatermLast!  --height=0.6 --width=0.6 --wintype=float --position=center<CR>', { desc = "Last Floatern" })
-keymap.set('n', '<leader>qw', '<cmd>FloatermToggle!  --height=0.6 --width=0.6 --wintype=float --position=center<CR>', { desc = "Toggle Floatern" })
-keymap.set('n', '<leader>qd', '<cmd>FloatermNew!  --height=0.6 --width=0.6 --wintype=float --position=center<CR>', { desc = "New Floatern" })
-keymap.set('n', '<leader>qc', '<cmd>FloatermPrev!  --height=0.6 --width=0.6 --wintype=float --position=center<CR>', { desc = "Prev Floatern" })
-keymap.set('n', '<leader>qv', '<cmd>FloatermNext!  --height=0.6 --width=0.6 --wintype=float --position=center<CR>', { desc = "Next Floatern" })
+keymap.set('n', '<leader>qe', '<cmd>FloatermLast<CR>', { desc = "Last Floatern" })
+keymap.set('n', '<leader>qw', '<cmd>FloatermToggle<CR>', { desc = "Toggle Floatern" })
+keymap.set('n', '<leader>qd', '<cmd>FloatermNew! --height=0.6 --width=0.6 --wintype=float --position=center<CR>', { desc = "New Floatern" })
+keymap.set('n', '<leader>qc', '<cmd>FloatermPrev<CR>', { desc = "Prev Floatern" })
+keymap.set('n', '<leader>qv', '<cmd>FloatermNext<CR>', { desc = "Next Floatern" })
