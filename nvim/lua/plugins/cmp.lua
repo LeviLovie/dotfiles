@@ -28,6 +28,7 @@ return {
               },
               -- Installed sources:
               sources = {
+                { name = "copilot", group_index = 2 },
                 { name = 'path' },                              -- file paths
                 { name = 'nvim_lsp', keyword_length = 3 },      -- from language server
                 { name = 'nvim_lsp_signature_help'},            -- display function signatures with current parameter emphasized
