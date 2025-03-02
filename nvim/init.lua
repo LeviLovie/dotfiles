@@ -1,3 +1,5 @@
+vim.g.python3_host_prog = "~/.venvs/neovim/bin/python"
+
 require("config.lazy")
 require("config.opts")
 require("config.keys")
