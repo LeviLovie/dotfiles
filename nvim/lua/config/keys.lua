@@ -23,10 +23,10 @@ keymap.set("n", "<leader>gx", "<C-w>c")
 keymap.set("n", "<leader>gc", "<C-w>o")
 
 -- TAB and S-TAB to replace C-d and C-u and zz
-keymap.set("n", "<C-d>", "8j", { noremap = true, silent = true })
-keymap.set("n", "<C-u>", "8k", { noremap = true, silent = true })
-keymap.set("n", "<TAB>", "8jzz")
-keymap.set("n", "<S-TAB>", "8kzz")
+keymap.set({ "n", "v" }, "<C-d>", "8j", { noremap = true, silent = true })
+keymap.set({ "n", "v" }, "<C-u>", "8k", { noremap = true, silent = true })
+keymap.set({ "n", "v" }, "<TAB>", "8jzz", { noremap = true, silent = true })
+keymap.set({ "n", "v" }, "<S-TAB>", "8kzz", { noremap = true, silent = true })
 
 -- Copy to system clipboard
 vim.keymap.set("v", "<leader>y", '"+y')
