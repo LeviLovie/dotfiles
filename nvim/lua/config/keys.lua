@@ -29,7 +29,8 @@ keymap.set({ "n", "v" }, "<TAB>", "8jzz", { noremap = true, silent = true })
 keymap.set({ "n", "v" }, "<S-TAB>", "8kzz", { noremap = true, silent = true })
 
 -- Copy to system clipboard
-vim.keymap.set("v", "<leader>y", '"+y')
+vim.keymap.set("v", "y", '"+y')
+vim.keymap.set("n", "y", '"+yy')
 
 -- Force myself to use hjkl :D
 vim.keymap.set({ "n", "i", "v" }, "<Up>", "<Nop>", { noremap = true, silent = true })

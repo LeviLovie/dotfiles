@@ -1,0 +1,11 @@
+[window]
+padding = {x = 2, y = 2}
+
+[font]
+size = 15.0
+normal = { family = "MonaspiceKr Nerd Font", style = "Regular" }
+
+[[keyboard.bindings]]
+key = "."
+mods = "Alt"
+chars = "\u001b."

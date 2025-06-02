@@ -1,2 +1,4 @@
 # DotFiles
-My config is compiled and improved from configurations of [Rodrigo Santiago](https://github.com/rsdlt) and [Josean Martinez](https://github.com/josean-dev).
+
+My config is very convoluted but i like it the way it is,
+so here it is for anyone intrested

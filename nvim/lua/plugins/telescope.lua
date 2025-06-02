@@ -5,8 +5,26 @@ return {
 		local telescope = require("telescope")
 		telescope.setup({
 			pickers = {
-				find_files = {
-					hidden = true,
+				hidden = true,
+				no_ignore = false,
+				no_ignore_parent = false,
+				find_command = {
+					"fd",
+					"--type",
+					"f",
+					"--hidden",
+					"--exclude",
+					"node_modules",
+					"--exclude",
+					"dist",
+					"--exclude",
+					"target",
+					"--exclude",
+					"*.o",
+					"--exclude",
+					"*.class",
+					"--exclude",
+					"venv",
 				},
 			},
 		})
