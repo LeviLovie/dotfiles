@@ -24,11 +24,43 @@ return {
 			},
 			sections = {
 				lualine_a = { "mode" },
-				lualine_b = { "branch", "diff", "diagnostics" },
-				lualine_c = { "filename" },
-				lualine_x = { "encoding", "fileformat", "filetype" },
-				lualine_y = { { require("NeoComposer.ui").status_recording } },
-				lualine_z = { "location" },
+				lualine_b = {
+					"branch",
+					{
+						"diff",
+						symbols = { added = "+", modified = "~", removed = "-" },
+					},
+				},
+				lualine_c = {
+					{ "filename", path = 1 }, -- 1 = relative path
+				},
+				lualine_x = {
+					{ require("NeoComposer.ui").status_recording },
+					{
+						"diagnostics",
+						sources = { "nvim_diagnostic" },
+						sections = { "error", "warn", "hint" }, -- omit 'info' for compactness
+						diagnostics_color = {
+							error = "DiagnosticError",
+							warn = "DiagnosticWarn",
+							hint = "DiagnosticHint",
+						},
+						symbols = {
+							error = " ",
+							warn = " ",
+							hint = " ",
+						},
+						colored = true,
+						update_in_insert = false,
+						always_visible = false,
+					},
+				},
+				lualine_y = {
+					"filetype",
+				},
+				lualine_z = {
+					"location",
+				},
 			},
 			inactive_sections = {
 				lualine_a = {},

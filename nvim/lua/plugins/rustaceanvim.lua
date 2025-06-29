@@ -9,16 +9,10 @@ return {
 			server = {
 				settings = {
 					["rust-analyzer"] = {
-						-- your rust-analyzer settings here
 						cargo = { allFeatures = true },
-						checkOnSave = { command = "clippy" },
+						check = { command = "check" },
 					},
 				},
-			},
-		}
-
-		vim.g.rustaceanvim = {
-			server = {
 				on_attach = function(client, bufnr)
 					vim.keymap.set("n", "<leader>a", function()
 						vim.cmd.RustLsp("codeAction")

@@ -1,3 +1,5 @@
+vim.opt.clipboard = "unnamedplus"
+
 vim.opt.completeopt = { "menuone", "noselect", "noinsert" }
 vim.opt.shortmess = vim.opt.shortmess + { c = true }
 vim.api.nvim_set_option("updatetime", 150)
@@ -28,14 +30,6 @@ vim.cmd([[
 vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
 	pattern = "*.rhai",
 	command = "setfiletype rust",
-})
-
-vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
-	pattern = "*.rs",
-	callback = function()
-		vim.cmd("AerialOpen")
-		vim.cmd("wincmd h")
-	end,
 })
 
 vim.diagnostic.config({

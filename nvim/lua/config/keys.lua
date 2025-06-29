@@ -28,13 +28,26 @@ keymap.set({ "n", "v" }, "<C-u>", "8k", { noremap = true, silent = true })
 keymap.set({ "n", "v" }, "<TAB>", "8jzz", { noremap = true, silent = true })
 keymap.set({ "n", "v" }, "<S-TAB>", "8kzz", { noremap = true, silent = true })
 
--- Copy to system clipboard
-vim.keymap.set("v", "y", '"+y')
-vim.keymap.set("n", "y", '"+yy')
-
 -- Force myself to use hjkl :D
 vim.keymap.set({ "n", "i", "v" }, "<Up>", "<Nop>", { noremap = true, silent = true })
 vim.keymap.set({ "n", "i", "v" }, "<Down>", "<Nop>", { noremap = true, silent = true })
 vim.keymap.set({ "n", "i", "v" }, "<Left>", "<Nop>", { noremap = true, silent = true })
 vim.keymap.set({ "n", "i", "v" }, "<Right>", "<Nop>", { noremap = true, silent = true })
 vim.opt.mouse = ""
+
+-- No Highlight
+vim.keymap.set("n", "<leader><space>", ":nohl<CR>", { silent = true })
+
+-- -- Fast macros
+-- vim.keymap.set("n", "@", function()
+-- 	local char = vim.fn.getcharstr()
+-- 	if char == "" then
+-- 		return
+-- 	elseif char == "@" then
+-- 		vim.cmd("normal @@")
+-- 	elseif char:match("%s") then
+-- 		return
+-- 	else
+-- 		vim.cmd("normal @" .. char)
+-- 	end
+-- end, { expr = false, noremap = true })

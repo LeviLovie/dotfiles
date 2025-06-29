@@ -9,3 +9,8 @@ normal = { family = "MonaspiceKr Nerd Font", style = "Regular" }
 key = "."
 mods = "Alt"
 chars = "\u001b."
+
+[[keyboard.bindings]]
+key = "k"
+mods = "Command"
+chars = "\u001b[999~"
