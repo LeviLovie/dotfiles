@@ -6,14 +6,14 @@ return {
 		{
 			"<leader>xx",
 			":Trouble<cr>",
-			desc = "Diagnostics (Trouble)",
+			desc = "Diagnostics",
 		},
 		{
-			"<leader>e",
+			"<leader>xn",
 			function()
 				local all_diags = vim.diagnostic.get()
 				for _, d in ipairs(all_diags) do
-					if d.severity == vim.diagnostic.severity.ERROR or d.severity == vim.diagnostic.severity.WARN then
+                    if d.severity == vim.diagnostic.severity.ERROR or d.severity == vim.diagnostic.severity.WARN then
 						vim.api.nvim_set_current_buf(d.bufnr)
 						vim.api.nvim_win_set_cursor(0, { d.lnum + 1, d.col })
 						return
@@ -21,7 +21,7 @@ return {
 				end
 				vim.notify("No error or warning diagnostics found", vim.log.levels.INFO)
 			end,
-			desc = "Jump to first error",
+			desc = "Jump to first error or warning",
 		},
 	},
 }

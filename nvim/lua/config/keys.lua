@@ -38,16 +38,8 @@ vim.opt.mouse = ""
 -- No Highlight
 vim.keymap.set("n", "<leader><space>", ":nohl<CR>", { silent = true })
 
--- -- Fast macros
--- vim.keymap.set("n", "@", function()
--- 	local char = vim.fn.getcharstr()
--- 	if char == "" then
--- 		return
--- 	elseif char == "@" then
--- 		vim.cmd("normal @@")
--- 	elseif char:match("%s") then
--- 		return
--- 	else
--- 		vim.cmd("normal @" .. char)
--- 	end
--- end, { expr = false, noremap = true })
+-- Tabs
+vim.keymap.set("n", "<leader>lo", ":tabnew<CR>", { silent = true })
+vim.keymap.set("n", "<leader>ln", ":tabnext<CR>", { silent = true })
+vim.keymap.set("n", "<leader>lp", ":tabprevious<CR>", { silent = true })
+vim.keymap.set("n", "<leader>lc", ":tabclose<CR>", { silent = true })

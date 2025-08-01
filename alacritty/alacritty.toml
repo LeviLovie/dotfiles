@@ -3,7 +3,7 @@ padding = {x = 2, y = 2}
 
 [font]
 size = 15.0
-normal = { family = "MonaspiceKr Nerd Font", style = "Regular" }
+normal = { family = "JetBrains Mono", style = "Regular" }
 
 [[keyboard.bindings]]
 key = "."

@@ -1,12 +1,12 @@
 return {
 	"phaazon/hop.nvim",
 	branch = "v2",
+    keys = {
+        { "<leader>hw", ":HopWord<CR>", desc = "Hop Words" },
+        { "<leader>hl", ":HopLine<CR>", desc = "Hop Lines" },
+        { "<leader>hv", ":HopVertical<CR>", desc = "Hop Vertical" }
+    },
 	config = function()
 		require("hop").setup({})
-
-		local keymap = vim.keymap
-		keymap.set("n", "<leader>fd", ":HopWord<cr>")
-		keymap.set("n", "<leader>fs", ":HopLine<cr>")
-		keymap.set("n", "<leader>fv", ":HopVertical<cr>")
 	end,
 }
