@@ -34,7 +34,7 @@ return {
 						vim.lsp.buf.definition()
 					end, { silent = true, buffer = bufnr })
 
-					vim.keymap.set("n", "<leader>rd", function()
+					vim.keymap.set("n", "<leader>rr", function()
 						vim.lsp.buf.references()
 					end, { silent = true, buffer = bufnr })
 				end,
