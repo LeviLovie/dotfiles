@@ -6,6 +6,9 @@
     nix-darwin.url = "github:nix-darwin/nix-darwin/nix-darwin-25.05";
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
 
+    home-manager.url = "github:nix-community/home-manager/release-25.05";
+    home-manager.inputs.nixpkgs.follows = "nixpkgs";
+
     nix-homebrew.url = "github:zhaofengli/nix-homebrew";
     homebrew-core = {
       url = "github:homebrew/homebrew-core";
@@ -17,47 +20,19 @@
     };
   };
 
-  outputs = inputs@{ self, nix-darwin, nixpkgs, nix-homebrew, homebrew-core, homebrew-cask }:
+  outputs = inputs@{ self, nix-darwin, nixpkgs, nix-homebrew, homebrew-core, homebrew-cask, home-manager }:
   let
     configuration = { pkgs, config, ... }: {
       nix.settings.experimental-features = "nix-command flakes";
 
       nixpkgs.config.allowUnfree = true;
 
-      environment.systemPackages =
-        [ pkgs.vim
-          pkgs.neovim
-          pkgs.mkalias
-          pkgs.git
-          pkgs.alacritty
-          pkgs.nerd-fonts.jetbrains-mono
-          pkgs.nerd-fonts.symbols-only
-          pkgs.nodejs-slim_24
-          pkgs.tmux
-          pkgs.cargo
-          pkgs.rustup
-          pkgs.lazygit
-          pkgs.yazi
-          pkgs.ripgrep
-          pkgs.eza
-          pkgs.fzf
-          pkgs.fastfetch
-          pkgs.ffmpeg
-          pkgs.postgresql
-          pkgs.python3
-          pkgs.zsh-powerlevel10k
-          pkgs.rust-analyzer
-          pkgs.just
-          pkgs.llvm
-          pkgs.lld
-          pkgs.nmap
-          pkgs.tree
-          pkgs.spotify
-          pkgs.obsidian
-          pkgs.gh
-          pkgs.starship
-          pkgs.zoxide
-        ];
+      environment.systemPackages = with pkgs; [
+        git
+        vim
+        zsh
+        zsh-completions
+      ];
 
       homebrew = {
         enable = true;
@@ -84,7 +59,7 @@
           rm -rf /Applications/Nix\ Apps
           mkdir -p /Applications/Nix\ Apps
           find ${env}/Applications -maxdepth 1 -type l -exec readlink '{}' + |
-          while read -r src; do
+          while IFS= read -r src; do
             app_name=$(basename "$src")
             echo "copying $src" >&2
             ${pkgs.mkalias}/bin/mkalias "$src" "/Applications/Nix Apps/$app_name"
@@ -105,6 +80,13 @@
       modules = [
         configuration
         nix-homebrew.darwinModules.nix-homebrew
+        home-manager.darwinModules.home-manager
+        {
+          home-manager.useGlobalPkgs = true;
+          home-manager.useUserPackages = true;
+          users.users.levi.home = "/Users/levi";
+          home-manager.users.levi = import ./home.nix;
+        }
         {
           nix-homebrew = {
             enable = true;

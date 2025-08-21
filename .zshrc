@@ -1,4 +1,4 @@
-ZINIT_HOME="${HOME}/.config/zinit/zinit.git"
+ZINIT_HOME="$HOME/.config/zinit/zinit.git"
 
 if [ ! -d "$ZINIT_HOME" ]; then
     mkdir -p "$(dirname $ZINIT_HOME)"
@@ -18,11 +18,16 @@ zinit snippet OMZP::sudo
 zinit snippet OMZP::command-not-found
 
 # Load completions
-autoload -Uz compinit && compinit
+fpath=(
+  $HOME/.nix-profile/share/zsh/site-functions
+  $HOME/.nix-profile/share/zsh/5.9/functions
+  $fpath
+)
+autoload -Uz compinit && compinit -u
 zinit cdreplay -q
 
 # Config
-HISTFILE="${HOME}/.cache/.zsh_history"
+HISTFILE="$HOME/.cache/.zsh_history"
 SAVEHIST=10000
 HISTDUP=erase
 setopt appendhistory
