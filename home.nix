@@ -41,7 +41,10 @@
     userEmail = "leviiloviee@gmail.com";
   };
 
-  programs.zsh.enable = true;
+  programs.zsh = {
+    enable = true;
+    initContent = "source ~/.dotfiles/.zshrc";
+  };
 
   home.sessionVariables.POST_INIT_SCRIPT = ''
     DOTFILES="~/.dotfiles"
@@ -49,11 +52,11 @@
     ALACRITTY_CONFIG="~/.config/alacritty"
     ZSH_CONFIG="~/.zshrc"
     TMUX_CONFIG="~/.tmux.conf"
-    
+
     if [ ! -d "$DOTFILES" ]; then
       ${pkgs.git}/bin/git clone git@github.com:LeviLovie/dotfiles.git "$DOTFILES"
     fi
-    
+
     mkdir -p "$(dirname $NVIM_CONFIG)"
     mkdir -p "$(dirname $ALACRITTY_CONFIG)"
 
@@ -65,7 +68,7 @@
       fi
       ln -s "$source" "$target"
     }
-    
+
     link("$NVIM_CONFIG", "$DOTFILES/nvim");
     link("$ALACRITTY_CONFIG", "$DOTFILES/alacritty");
     link("$ZSH_CONFIG", "$DOTFILES/zshrc");

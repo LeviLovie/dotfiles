@@ -55,6 +55,7 @@ bindkey '\e[999~' handle_clear
 alias l='eza -lh'
 alias ll='eza -lha'
 alias lg='lazygit'
+alias nix-rebuild='sudo darwin-rebuild switch --flake ~/.config/nix#mac-air'
 
 # Apply some plugins
 eval "$(fzf --zsh)"
