@@ -51,7 +51,7 @@
     TMUX_CONFIG="~/.tmux.conf"
     
     if [ ! -d "$DOTFILES" ]; then
-      ${pkgs.git}/bin/git clone https://github.com/LeviLovie/dotfiles.git "$DOTFILES"
+      ${pkgs.git}/bin/git clone git@github.com:LeviLovie/dotfiles.git "$DOTFILES"
     fi
     
     mkdir -p "$(dirname $NVIM_CONFIG)"
