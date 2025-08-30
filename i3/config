@@ -1,0 +1,88 @@
+set $mod Mod4
+set $term alacritty
+set $file nemo
+set $browser thorium-browser
+set $lock i3lock-fancy
+set $menu rofi -show run
+set $wallpaper "/home/levi/.config/hyde/themes/Catppuccin Mocha/wallpapers/boat_abondoned.jpg"
+set $src ~/.config/i3
+
+bindsym $mod+T exec $term
+bindsym $mod+E exec $file
+bindsym $mod+F exec $browser
+bindsym $mod+A exec $menu
+
+bindsym $mod+Q exec $src/kill.sh
+bindsym $mod+Delete exec "i3-msg exit"
+bindsym $mod+L exec $lock
+bindsym $mod+v exec $scrPath/cliphist.sh c
+bindsym $mod+Shift+v exec $scrPath/cliphist.sh
+
+workspace 0 output HDMI-0
+workspace 1 output DP-1
+workspace 2 output DP-1
+workspace 3 output DP-1
+workspace 4 output DP-1
+workspace 5 output DP-1
+workspace 6 output DP-1
+workspace 7 output DP-1
+workspace 8 output DP-1
+workspace 9 output DP-1
+
+bindsym $mod+1 workspace 1
+bindsym $mod+2 workspace 2
+bindsym $mod+3 workspace 3
+bindsym $mod+4 workspace 4
+bindsym $mod+5 workspace 5
+bindsym $mod+6 workspace 6
+bindsym $mod+7 workspace 7
+bindsym $mod+8 workspace 8
+bindsym $mod+9 workspace 9
+bindsym $mod+0 workspace 10
+
+bindsym $mod+Shift+1 move container to workspace 1
+bindsym $mod+Shift+2 move container to workspace 2
+bindsym $mod+Shift+3 move container to workspace 3
+bindsym $mod+Shift+4 move container to workspace 4
+bindsym $mod+Shift+5 move container to workspace 5
+bindsym $mod+Shift+6 move container to workspace 6
+bindsym $mod+Shift+7 move container to workspace 7
+bindsym $mod+Shift+8 move container to workspace 8
+bindsym $mod+Shift+9 move container to workspace 9
+bindsym $mod+Shift+0 move container to workspace 10
+
+bindsym $mod+Left focus left
+bindsym $mod+Right focus right
+bindsym $mod+Up focus up
+bindsym $mod+Down focus down
+bindsym Mod1+Tab focus right
+
+bindsym $mod+s move scratchpad
+bindsym $mod+Shift+s scratchpad show
+
+mode "resize" {
+    bindsym Left resize shrink width 10 px or 10 ppt
+    bindsym Right resize grow width 10 px or 10 ppt
+    bindsym Up resize shrink height 10 px or 10 ppt
+    bindsym Down resize grow height 10 px or 10 ppt
+
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+bindsym $mod+r mode "resize"
+
+bindsym $mod+w floating toggle
+bindsym Mod1+Return fullscreen toggle
+floating_modifier $mod
+bindsym $mod+button4 workspace next
+bindsym $mod+button5 workspace prev
+
+bindsym $mod+j split toggle
+
+gaps inner 8
+gaps outer 0
+
+exec_always --no-startup-id feh --bg-scale $wallpaper
+exec_always --no-startup-id picom --config ~/.config/picom/picom.conf
+exec_always --no-startup-id polybar main
+exec_always --no-startup-id xrandr --output DP-1 --primary
