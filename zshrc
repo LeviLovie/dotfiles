@@ -55,13 +55,14 @@ bindkey '\e[999~' handle_clear
 alias l='eza -lh'
 alias ll='eza -lha'
 alias lg='lazygit'
-alias nix-rebuild='sudo darwin-rebuild switch --flake ~/.config/nix#mac-air'
 alias cr='cargo run'
 alias crr='cargo run --release'
 alias c='cargo check'
 alias cf='cargo fmt'
 alias cl='cargo clippy'
 alias ct='cargo test'
+alias dr='sudo darwin-rebuild switch --flake ~/.config/nix#mac-air'
+alias nr='sudo nixos-rebuild switch --flake ~/.config/nix#levi-nix'
 
 # Apply some plugins
 eval "$(fzf --zsh)"
